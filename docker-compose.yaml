@@ -1,0 +1,19 @@
+version: '3'
+services:
+  mongodb-srv:
+    container_name: mongodb-srv
+    image: mongo
+    restart: on-failure
+    ports:
+      - "23456:27017"
+  realtime-app:
+    container_name: realtime-app
+    image: realtime
+    ports:
+      - "10245:8090"
+    environment:
+      - spring.data.mongodb.host=127.0.0.1
+    depends_on:
+      - mongodb-srv
+
+

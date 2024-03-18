@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Editor</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+<div id="room-page">
+    <div class="room-page-container-index">
+        <h1 class="title">Real Time Editor</h1>
+        <form id="roomForm" name="roomForm">
+            <div class="form-group">
+
+                <input type="text" id="docUser" placeholder="User" autocomplete="off" class="form-control" />
+
+                <input type="text" id="docId" placeholder="Document" autocomplete="off" class="form-control" />
+
+                <p><i>Give Room Id or press generate button to create one</i></p>
+                <button type="button" name="autoRoom" id="gen" onclick="generate()" class="default">Generate Room Id</button>
+                <input type="radio" name="ViewPrivilege" id="viewPrivilege">Only View</input>
+            </div>
+            <!--div class="form-group" -->
+
+                <button type="submit" name="login" value="create" id="create" class="primary room-submit">Create</button>
+                <button type="submit" name="login" value="sign-in" id="sign-in" class="primary room-submit">Sign In</button>
+            <!-- /div-->
+        </form>
+    </div>
+</div>
+
+
+<div id="textEditor" class="hidden">
+    <table>
+        <tr>
+            <td>
+                <div class="chat-container">
+                    <ul id="usersConnected" class="event-message">
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <div class = "chat-container">
+                    <table>
+                        <tr><th><h2>Edit Content</h2></th>
+                            <th><h2>Share with</h2></th></tr>
+                        <tr><td>
+                            <div id="edit-content" >
+                                <textarea id="edit-area"  cols="50" rows="10">
+                                </textarea>
+                                <br>
+                                <button type="submit" name="Save" id="save" class="primary">Save</button>
+                            </div>
+
+                            <div>
+                                <p id="userSession">current user </p>
+                            </div>
+                        </td>
+                            <td>
+                                <div class="chat-container-add-user">
+                                    <div id="authentication" class="hidden">
+                                        <form id="login-form" action="">
+                                            <div>
+                                                <label for="username">User:</label>
+                                                <input type="text" id="username" name="username" required>
+                                            </div>
+                                            <div>
+                                                <input type="radio" name="privilege" id="editUser" value="Edit"/>Edit
+                                                <input type="radio" name="privilege" id="viewUser" value="View"/>View
+                                            </div>
+                                            <button type="submit" id="btnSubmit" class="primary">Add</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </td>
+
+        </tr>
+    </table>
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+
+
+</body>
+</html>
