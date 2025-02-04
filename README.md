@@ -1,2 +1,2 @@
 # realtime 
-Real Time Editor using WebSockets in Java
+Java WebSockets for Real Time Editor using WebSockets in Java
